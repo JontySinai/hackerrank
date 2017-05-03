@@ -25,11 +25,11 @@ And that this condition is not true whenever we are in the countdown portion of 
 
 We will use this logic to establish whether we are at a restart time or not.
 
-Now looking more closely at the restart values R = {3, 6, 12, ... } - note that the restart values are the differences 
-between the restart times, which elucidates the sequence T(n) - we see that the restart values increase according to the 
+Now looking more closely at the restart values R = {3, 6, 12, ... }, (note that the restart values are the differences 
+between the restart times, which elucidates the sequence T(n) ) we see that the restart values increase according to the 
 geometric series:
 
-                                    T(n) = 3*(2**(n)),
+                                    R(n) = 3*(2**(n)),
                                     n = 0,1,2,3, ...
 
 Now we will use the rule value < t (if value = t, then we are simply one count away from the restart value), to
@@ -67,12 +67,12 @@ t = int(raw_input())
 # set the start value to 0 so that the condition is always true for any integer t > 1
 val = 0
 
-# set the initial restart value to 3; DR0) = 3
+# Before the while loop, the number of restarts is 0 and R(0) = 3
 next_restart_val = 3
 
 # check if we are in the countdown portion, ie when value < t
 while val < t:
-    # increment the value by D_n so that the while loop implicitly counts restarts
+    # increment the value by R_n so that the while loop implicitly counts the number of restarts
     val += next_restart_val
     # implicitly calculate the next restart value using the number of iterations of the while loop
     next_restart_val *= 2
@@ -84,7 +84,7 @@ last_restart_val = next_restart_val/2
 val = val - last_restart_val
 
 # note that at this point val is dependent on n and not on t itself, so now we use the last equation above to calculate val as a function of t
-
+_
 val = val - t + 1 + last_restart_val
 
 print val
