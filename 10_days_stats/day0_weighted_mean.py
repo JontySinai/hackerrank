@@ -13,6 +13,7 @@ data = map(float, inp[1].split(' '))
 
 weights = map(float, inp[2].split(' '))
 
+# NumPy is forbidden for 10 Days of Statistics, so here's an element wise hack using the operator package
 w_mean = (sum(map(multiply, data, weights)))/(sum(weights))
 
 print round(float(w_mean),1)
