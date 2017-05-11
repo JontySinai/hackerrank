@@ -14,6 +14,7 @@ def get_mean(data, n=-1):
     mean = (sum(data)/n)
 
     return mean
+    
 
 def get_std_dev(data, n = -1):
     """
